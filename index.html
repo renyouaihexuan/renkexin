@@ -141,7 +141,7 @@
 		</div>
 		
 		
-		<audio  src="kexin/renkexin.mp3" autoplay="autoplay" controls="controls"  id="audio">您的浏览器不支持 audio 标签</audio>
+		<audio  src="kexin/renkexin.mp3" autoplay="autoplay"  id="audio">您的浏览器不支持 audio 标签</audio>
 
 		<script>
 		var personArray = new Array;
@@ -564,6 +564,23 @@
 				renderer.render( scene, camera );
 
 			}
+			
+			function audioAutoPlay(id){
+　　var audio = document.getElementById(id),
+　　　　play = function(){
+　　　　　　audio.play();
+　　　　　　document.removeEventListener("touchstart",play, false);
+　　　　};
+　　audio.play();
+　　document.addEventListener("WeixinJSBridgeReady", function () {//微信
+　　　　play();
+　　}, false);
+　　document.addEventListener('YixinJSBridgeReady', function() {//易信
+　　　　play();
+　　}, false);
+　　document.addEventListener("touchstart",play, false);
+}
+audioAutoPlay('audio');
 
 		</script>
 
