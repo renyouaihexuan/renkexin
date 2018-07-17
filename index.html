@@ -117,7 +117,8 @@
 		<script src="js/tween.min.js"></script>
 		<script src="js/TrackballControls.js"></script>
 		<script src="js/CSS3DRenderer.js"></script>
-
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		
 		<div id="container"></div>
 		<div id="info">爸妈的小心肝:任可馨）</div>
 		<div id="menu">
@@ -140,9 +141,23 @@
 		</div>
 		
 		
-		<audio  autoplay="autoplay"  src="kexin/renkexin.mp3"></audio>
+		<audio  autoplay="autoplay"  src="kexin/renkexin.mp3" id="audio"></audio>
 
 		<script>
+			
+			wx.config({
+				// 配置信息, 即使不正确也能使用 wx.ready
+		　　　　debug: false,
+		　　　　appId: '',
+		　　　　timestamp: 1,
+		　　　　nonceStr: '',
+		　　　　signature: '',
+		　　　　jsApiList: []
+		　　});
+		　　wx.ready(function() {
+		　　　　document.getElementById('audio').play();
+		　　});
+			
 			var personArray = new Array;
     		var CurPersonNum = 0;
     		// animate
