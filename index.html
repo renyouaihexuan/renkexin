@@ -141,25 +141,10 @@
 		</div>
 		
 		
-		<audio  src="kexin/renkexin.mp3" id="audio"></audio>
+		<audio  src="kexin/renkexin.mp3" autoplay="autoplay"  id="audio">您的浏览器不支持 audio 标签</audio>
 
 		<script>
-			
-			wx.config({
-				// 配置信息, 即使不正确也能使用 wx.ready
-		　　　　debug: true,
-		　　　　appId: '',
-		　　　　timestamp: 1,
-		　　　　nonceStr: '',
-		　　　　signature: '',
-		　　　　jsApiList: []
-		　　});
-		　　wx.ready(function() {
-			  alert(1);
-		　　　　document.getElementById('audio').play();
-		　　});
-			
-			var personArray = new Array;
+		var personArray = new Array;
     		var CurPersonNum = 0;
     		// animate
     		var _in = ['bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','fadeIn','fadeInDown','fadeInDownBig','fadeInLeft','fadeInLeftBig','fadeInRight','fadeInRightBig','fadeInUp','fadeInUpBig','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInLeft','slideInRight'];
