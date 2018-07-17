@@ -144,6 +144,24 @@
 		<audio  src="kexin/renkexin.mp3" autoplay="autoplay" loop="loop" id="audio">您的浏览器不支持 audio 标签</audio>
 
 		<script>
+			
+		function audioAutoPlay(id){
+		    var audio = document.getElementById(id),
+		    play = function(){
+		        audio.play();
+		        document.removeEventListener("touchstart",play, false);
+		    };
+		    audio.play();
+		    document.addEventListener("WeixinJSBridgeReady", function () {//微信
+		        play();
+		    }, false);
+		    document.addEventListener('YixinJSBridgeReady', function() {//易信
+		        play();
+		     }, false);
+		     document.addEventListener("touchstart",play, false);
+		}
+		audioAutoPlay('audio');
+			
 		var personArray = new Array;
     		var CurPersonNum = 0;
     		// animate
@@ -564,23 +582,6 @@
 				renderer.render( scene, camera );
 
 			}
-			
-			function audioAutoPlay(id){
-　　var audio = document.getElementById(id),
-　　　　play = function(){
-　　　　　　audio.play();
-　　　　　　document.removeEventListener("touchstart",play, false);
-　　　　};
-　　audio.play();
-　　document.addEventListener("WeixinJSBridgeReady", function () {//微信
-　　　　play();
-　　}, false);
-　　document.addEventListener('YixinJSBridgeReady', function() {//易信
-　　　　play();
-　　}, false);
-　　document.addEventListener("touchstart",play, false);
-}
-audioAutoPlay('audio');
 
 		</script>
 
